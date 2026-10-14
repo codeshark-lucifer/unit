@@ -1,0 +1,70 @@
+# --- Build output ---
+build/
+out/
+cmake-build-*/
+bin/
+vulkan/
+
+# --- CMake generated ---
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+install_manifest.txt
+compile_commands.json
+.ninja_deps
+.ninja_log
+build.ninja
+Testing/
+
+# --- Compiled objects / binaries ---
+*.o
+*.obj
+*.exe
+*.dll
+*.exp
+*.ilk
+*.pdb
+*.dll.a
+*.so
+*.dylib
+*.out
+
+# Libraries you build yourself (uncomment the next line if your own libs live in lib/)
+# But third-party libs such as lib/libSDL3.a are NOT ignored, so they stay in the repo.
+
+# --- Compiled shaders (regenerate from .vert/.frag/.glsl sources) ---
+*.spv
+shaders/compiled/
+
+# --- IDE / editor ---
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sln
+*.vcxproj*
+*.user
+*.suo
+*.swp
+*.swo
+*~
+.cache/
+.clangd/
+
+# --- Debug / profiling output ---
+*.log
+*.dmp
+*.stackdump
+*.trace
+imgui.ini
+RenderDoc/
+*.rdc
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+desktop.ini
