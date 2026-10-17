@@ -1,6 +1,12 @@
 #pragma once
 #include <vulkan/vulkan.h>
 
+struct Buffer
+{
+    VkBuffer usage = VK_NULL_HANDLE;
+    VkDeviceMemory memory = VK_NULL_HANDLE;
+};
+
 // Creates a buffer and allocates + binds memory for it.
 void CreateBuffer(VkDeviceSize size,
                   VkBufferUsageFlags usage,

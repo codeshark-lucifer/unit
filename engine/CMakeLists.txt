@@ -1,5 +1,6 @@
 add_library(engine SHARED
     src/engine.cpp
+    src/graphics/renderer.cpp
     src/vk/instance.cpp
     src/vk/device.cpp
     src/vk/debug.cpp
@@ -7,6 +8,7 @@ add_library(engine SHARED
     src/vk/pipeline.cpp
     src/vk/framebuffer.cpp
     src/vk/buffer.cpp
+    src/vk/texture.cpp
 )
 
 target_include_directories(engine

@@ -8,6 +8,7 @@ target_link_libraries(runtime PRIVATE
 
 target_include_directories(runtime PRIVATE
     ${PROJECT_SOURCE_DIR}/engine/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
 set_target_properties(runtime PROPERTIES

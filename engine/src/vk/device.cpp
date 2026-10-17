@@ -134,7 +134,7 @@ bool Device::CheckFeatureSupport(VkPhysicalDevice device)
 
     vkGetPhysicalDeviceFeatures2(device, &f2);
 
-    return f13.dynamicRendering == VK_TRUE && f13.synchronization2 == VK_TRUE;
+    return f13.dynamicRendering == VK_TRUE && f13.synchronization2 == VK_TRUE && f2.features.samplerAnisotropy == VK_TRUE;
 }
 
 // Returns <= 0 if the device is unsuitable, otherwise a score (higher is better).
@@ -211,6 +211,7 @@ bool Device::PickPhysicalDevice(VkInstance instance, VkSurfaceKHR surface)
     m_families = FindQueueFamilies(m_physical, surface);
 
     std::printf("Selected GPU: %s\n", m_properties.deviceName);
+    std::fflush(stdout);
     return true;
 }
 
@@ -258,7 +259,7 @@ bool Device::CreateLogicalDevice()
     VkPhysicalDeviceFeatures2 features2{};
     features2.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2;
     features2.pNext = &features13;
-    // features2.features.samplerAnisotropy = VK_TRUE; // enable core 1.0 features here when needed
+    features2.features.samplerAnisotropy = VK_TRUE;
 
     VkDeviceCreateInfo createInfo{};
     createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;

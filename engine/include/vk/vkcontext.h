@@ -14,6 +14,13 @@ struct FrameData
     VkFence inFlight = VK_NULL_HANDLE;
 };
 
+struct UniformBuffer
+{
+    VkBuffer buffer = VK_NULL_HANDLE;
+    VkDeviceMemory memory = VK_NULL_HANDLE;
+    void *mapped = nullptr;
+};
+
 struct VkContext
 {
     VkInstance instance = VK_NULL_HANDLE;
@@ -29,10 +36,10 @@ struct VkContext
     SwapChain swapchain;
     std::vector<Framebuffer> framebuffers;
 
-    VkBuffer vertexBuffer;
-    VkDeviceMemory vertexBufferMemory;
-    VkBuffer indexBuffer;
-    VkDeviceMemory indexBufferMemory;
+    std::vector<UniformBuffer>
+        uniforms;
+    VkDescriptorPool descriptorPool = VK_NULL_HANDLE;
+    std::array<VkDescriptorSet, MAX_FRAMES_IN_FLIGHT> descriptorSets{};
 
     VkDebugUtilsMessengerEXT debugMessenger = VK_NULL_HANDLE;
 };

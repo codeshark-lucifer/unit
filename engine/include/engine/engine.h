@@ -5,6 +5,10 @@
 
 #include "vk/vkcontext.h"
 #include "vk/pipeline.h"
+#include "vk/buffer.h"
+#include "vk/vertex.h"
+#include <vector>
+#include <cstdint>
 
 extern bool engine_running;
 extern bool screen_resized;
@@ -26,8 +30,13 @@ extern "C"
     ENGINE_API void engine_draw_frame();
 }
 
-void CreateVertexBuffer();
-void CreateIndexBuffer();
+// void CreateTextureImage();
+
+void CreateDescriptorSets();
+void CreateUniformBuffers();
+
+void CreateVertexBuffer(Buffer &buffer, const std::vector<Vertex> &vertices);
+void CreateIndexBuffer(Buffer &buffer, const std::vector<uint16_t> &indices);
 
 void CreateSyncObjects();
 
@@ -38,3 +47,5 @@ void CreateCommandPool();
 void CreateRenderPass();
 void CreateFramebuffers();
 void DestroyFramebuffers();
+
+// void UpdateUniformBuffer();
